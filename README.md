@@ -2,7 +2,7 @@
 
 ## Here are the Todos for this project
 - [x] Create a folder (dir/directory)
-- [ ] Create a file
+- [x] Create a file
 - [ ] Loop through the folder
 - [ ] Write to a file
 - [ ] Read from a file
