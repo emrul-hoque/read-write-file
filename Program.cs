@@ -4,6 +4,7 @@ Console.WriteLine($"\">>> {dirInfo.FullName}\" has been created.");
 System.IO.Directory.CreateDirectory(myFolderNameWithPath);
 
 string fileName = System.IO.Path.GetRandomFileName();
+fileName = Guid.NewGuid().ToString() + ".txt";
 myFolderNameWithPath = System.IO.Path.Combine(myFolderNameWithPath, fileName);
 Console.WriteLine($">>> File \"{fileName}\" will be created in {myFolderNameWithPath}");
 Console.WriteLine("Path to my file: {0}\n", myFolderNameWithPath);
@@ -15,6 +16,9 @@ if (!System.IO.File.Exists(myFolderNameWithPath))
             {
                 for (byte i = 0; i < 100; i++)
                 {
+                    string text = "TEST SUCCESSFUL";
+                    await File.WriteAllTextAsync(fileName, text);
+
                   //  fs.WriteByte(i);
                 }
             }
@@ -39,6 +43,9 @@ if (!System.IO.File.Exists(myFolderNameWithPath))
         {
             Console.WriteLine(e.Message);
         }
+      
+
+
 
         // Keep the console window open in debug mode.
         System.Console.WriteLine("Press any key to exit.");
