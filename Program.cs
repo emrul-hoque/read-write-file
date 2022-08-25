@@ -1,56 +1,43 @@
-﻿string myFolderNameWithPath = @"./bin/MyTestFolder";
- var dirInfo = System.IO.Directory.CreateDirectory(myFolderNameWithPath);
-Console.WriteLine($"\">>> {dirInfo.FullName}\" has been created.");
-System.IO.Directory.CreateDirectory(myFolderNameWithPath);
+﻿// This is the folder/dir location/path:
+string myFolderNameWithPath = @"./MyTestFolder";
+var dirInfo = System.IO.Directory.CreateDirectory(myFolderNameWithPath);
+Console.WriteLine($">>> {dirInfo.FullName}\" has been created.");
 
-string fileName = System.IO.Path.GetRandomFileName();
-fileName = Guid.NewGuid().ToString() + ".txt";
-myFolderNameWithPath = System.IO.Path.Combine(myFolderNameWithPath, fileName);
-Console.WriteLine($">>> File \"{fileName}\" will be created in {myFolderNameWithPath}");
-Console.WriteLine("Path to my file: {0}\n", myFolderNameWithPath);
+// This is the file name
+string fileName = System.IO.Path.GetRandomFileName() + ".txt";
 
+// This basically combines myFolderNameWithPath("./MyTestFolder") and fileName ("MyTextFile2.txt") to "./MyTestFolder/MyTextFile2.txt"
+var myFileNameWithPath = System.IO.Path.Combine(myFolderNameWithPath, fileName);
+Console.WriteLine($">>> This file \"{myFileNameWithPath}\" will be created");
 
-if (!System.IO.File.Exists(myFolderNameWithPath))
+if (!System.IO.File.Exists(myFileNameWithPath))
+{
+    // If you want to write the "text" to your file, then you can either pick OPTION 1 or 2:
+    string text = "TEST SUCCESSFUL";
+
+    // OPTION #1:
+    File.WriteAllText(myFileNameWithPath, text);
+
+    // OPTION #2:
+    /*using (System.IO.FileStream fs = System.IO.File.Create(myFileNameWithPath))
+    {
+        // fs.Close();
+         using (TextWriter tw = new StreamWriter(fs))
         {
-            using (System.IO.FileStream fs = System.IO.File.Create(myFolderNameWithPath))
-            {
-                for (byte i = 0; i < 100; i++)
-                {
-                    string text = "TEST SUCCESSFUL";
-                    await File.WriteAllTextAsync(fileName, text);
-
-                  //  fs.WriteByte(i);
-                }
-            }
+            tw.WriteLine(text);
         }
-        else
-        {
-            Console.WriteLine("File \"{0}\" already exists.", fileName);
-            return;
-        }
+    } */
+}
+else
+{
+    Console.WriteLine("File \"{0}\" already exists.", fileName);
+    return;
+}
 
-        // Read and display the data from your file.
-        try
-        {
-            byte[] readBuffer = System.IO.File.ReadAllBytes(myFolderNameWithPath);
-            foreach (byte b in readBuffer)
-            {
-                Console.Write(b + " ");
-            }
-            Console.WriteLine();
-        }
-        catch (System.IO.IOException e)
-        {
-            Console.WriteLine(e.Message);
-        }
-      
+// Keep the console window open in debug mode.
+System.Console.WriteLine("Press any key to exit.");
+System.Console.ReadKey();
 
-
-
-        // Keep the console window open in debug mode.
-        System.Console.WriteLine("Press any key to exit.");
-        System.Console.ReadKey();
-    
 
 
 
