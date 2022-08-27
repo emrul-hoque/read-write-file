@@ -3,8 +3,8 @@
 ## Here are the Todos for this project
 - [x] Create a folder (dir/directory)
 - [x] Create a file
-- [ ] Loop through the folder
-- [ ] Write to a file
+- [x] Loop through the folder
+- [x] Write to a file
 - [ ] Read from a file
 - [ ] Delete a file
 ---
