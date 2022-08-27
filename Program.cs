@@ -34,6 +34,13 @@ else
     return;
 }
 
+string[] files = {"File1", "File2"};
+
+foreach(var file in files)
+{
+    Console.WriteLine(file);
+}
+
 // Keep the console window open in debug mode.
 System.Console.WriteLine("Press any key to exit.");
 System.Console.ReadKey();
