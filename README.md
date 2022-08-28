@@ -5,7 +5,7 @@
 - [x] Create a file
 - [x] Loop through the folder
 - [x] Write to a file
-- [ ] Read from a file
+- [x] Read from a file
 - [ ] Delete a file
 ---
 Links:
