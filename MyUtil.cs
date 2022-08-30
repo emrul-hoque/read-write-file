@@ -31,6 +31,7 @@ namespace Demo
             for (var i = 0; i < files.Length; i++)
             {
                 Console.WriteLine(">>> " + i + "- " + files[i] + Environment.NewLine);
+
             }
         }
 
@@ -41,7 +42,7 @@ namespace Demo
             {
                 int counter = 0;
                 string? ln;
-                
+
                 while ((ln = file.ReadLine()) != null)
                 {
                     Console.WriteLine(ln);
@@ -52,5 +53,56 @@ namespace Demo
                 Console.WriteLine("File has " + counter + " lines.");
             }
         }
+
+        public static void DeleteAFile(string myFileNameWithPath, string myFolderNameWithPath)
+        {
+            if (System.IO.File.Exists(myFileNameWithPath))
+            {
+                string[] files = Directory.GetFiles(myFolderNameWithPath);
+
+                StreamReader sr = new StreamReader(myFolderNameWithPath);
+
+                for (var i = 0; i < files.Length; i++)
+                {
+                    Console.WriteLine(">>> " + i + "- " + files[i] + Environment.NewLine);
+                    Console.WriteLine("Enter the number of the file that you want to delete:");
+                    string line = sr.ReadLine();
+
+                    while ((line = files[i]) != null)
+
+                    {
+                        System.IO.File.Delete(myFileNameWithPath);
+
+                    }
+
+                }
+
+                /*
+                string LocToDeleteFile = @"E:\C-sharp-IO\testDuplicate.txt";
+
+                //check if file exists before deleting it
+                if(File.Exists(LocToDeleteFile))
+                {
+                  //call File.Delete with location of file
+                  File.Delete(LocToDeleteFile );
+                */
+
+
+                /*
+                try
+                {
+                    System.IO.File.Delete(myFileNameWithPath);
+                }
+                catch (System.IO.IOException e)
+                {
+                    Console.WriteLine(e.Message);
+                    return;
+                }
+                */
+            }
+
+        }
     }
 }
+
+

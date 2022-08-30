@@ -23,7 +23,8 @@
             MyUtil.CreateFile(myFileNameWithPath, myContent);
             MyUtil.CreateFile(myTextFile, myContent);
             MyUtil.ReadAFolderContent(myFolderNameWithPath);
-            MyUtil.ReadAFile(myTextFile);          
+            MyUtil.ReadAFile(myTextFile);    
+            MyUtil.DeleteAFile(myFileNameWithPath);      
         }
     }   
 }
